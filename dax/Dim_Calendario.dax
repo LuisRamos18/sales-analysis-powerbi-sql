@@ -1,0 +1,13 @@
+Dim_Calendario = 
+VAR FechaInicio = MIN(Fact_Ventas[FECHA])
+VAR FechaFin = MAX(Fact_Ventas[FECHA])
+RETURN
+ADDCOLUMNS (
+    CALENDAR (FechaInicio, FechaFin),
+    "Año", YEAR([Date]),
+    "Mes Nro", MONTH([Date]),
+    "Mes", FORMAT([Date], "MMMM"),
+    "Trimestre", "T" & FORMAT([Date], "Q"),
+    "Mes Año", FORMAT([Date], "MMM-YY"),
+    "Mes Año Orden", FORMAT([Date], "YYYYMM")
+)
