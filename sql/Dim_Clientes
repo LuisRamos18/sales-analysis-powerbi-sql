@@ -1,0 +1,13 @@
+/*TABLA DE DIMENSION CLIENTES*/
+
+/*---Sistema contpaqi comercial premium V 11.5.1----
+Creado por Luis Ramos
+Fecha de creación 16/04/2026*/
+
+SELECT 
+    CIDCLIENTEPROVEEDOR AS IDCLIENTE, 
+    CCODIGOCLIENTE, 
+    CRAZONSOCIAL,
+    CASE WHEN CIDMONEDA = 1 THEN 'NACIONAL' ELSE 'EXPORTACION' END AS TipoCliente
+FROM admClientes
+WHERE LEFT (CCODIGOCLIENTE, 1) <> 'P'
